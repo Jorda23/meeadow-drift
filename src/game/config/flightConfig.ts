@@ -1,0 +1,18 @@
+export const endlessFlightConfig = {
+  initialSpeed: 165,
+  maximumSpeed: 330,
+  speedRampDistance: 70,
+  initialGap: 300,
+  minimumGap: 185,
+  difficultyDistance: 2200,
+  gapReductionPerStep: 28,
+  firstPatternDistance: 900,
+  initialPatternSpacing: 840,
+  patternSpacingRamp: 35,
+  minimumPatternSpacing: 410,
+  gravity: 390,
+  liftAcceleration: 650,
+  maximumRiseVelocity: 220,
+  maximumFallVelocity: 230,
+  beeHorizontalPosition: 0.23,
+} as const
