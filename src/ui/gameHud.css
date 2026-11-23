@@ -1,0 +1,98 @@
+.game-shell:has(.combat-hud) .topbar,
+.game-shell:has(.combat-hud) .right-rail,
+.game-shell:has(.combat-hud) .bottom-bar { display: none; }
+.game-shell:has(.combat-hud) .corner-mark { display: none; }
+.combat-hud { position: absolute; z-index: 4; inset: 0; color: #f1f3ec; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .6px; pointer-events: none; text-shadow: 0 1px 5px #0009; }
+.hud-top-center { position: absolute; top: 22px; left: 50%; transform: translateX(-50%); width: min(420px, 52vw); display: flex; flex-direction: column; align-items: center; gap: 7px; }
+.compass-strip { height: 14px; display: flex; align-items: center; gap: 18px; color: #ecede5; font-size: 9px; }
+.compass-strip i { display: block; width: 1px; height: 5px; background: #e4e7da88; }
+.compass-strip strong { font-size: 10px; color: #fff; }
+.scoreboard { display: flex; align-items: stretch; gap: 8px; width: 100%; height: 34px; }
+.team-score { width: 92px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: #192326c9; border-top: 2px solid #4fc0df; }
+.team-score strong { font-size: 16px; letter-spacing: 1px; }
+.team-score small { font-size: 8px; color: #8fcce0; }
+.team-score.hostile { border-color: #ec775e; background: #271c1dc9; }
+.team-score.hostile small { color: #e78b75; }
+.match-progress { flex: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 3px 2px 0; color: #c6cabc; font-size: 7px; }
+.match-progress > div { width: 100%; height: 4px; background: linear-gradient(90deg,#51b3ce 48%,#4b4f4d 48%,#4b4f4d 52%,#d7765f 52%); }
+.match-progress > div i { display: block; width: 48%; height: 100%; background: #62c4dc; }
+.match-progress b { font-size: 9px; line-height: 1; }
+.objective-row { display: flex; align-items: center; gap: 24px; margin-top: 1px; }
+.objective-chip { width: 17px; height: 17px; display: grid; place-items: center; border: 1px solid #d7dacf; color: #e9eee4; font-weight: bold; font-size: 9px; transform: rotate(45deg); background: #151d20b8; }
+.objective-chip.enemy { border-color: #df8168; color: #f19a7e; }
+.objective-chip.friendly { border-color: #61bcd2; color: #7dd6e9; }
+.objective-chip.active { background: #d9bd63; color: #161a17; border-color: #f4dc7b; position: relative; }
+.objective-chip.active small { position: absolute; left: 21px; top: 2px; width: 70px; transform: rotate(-45deg); color: #fff; font-size: 7px; white-space: nowrap; }
+.objective-marker { position: absolute; top: 14%; left: 50%; transform: translateX(-50%); display: flex; align-items: center; flex-direction: column; gap: 3px; color: #f5f4ec; }
+.marker-diamond { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #19333bd9; border: 1px solid #87c5d2; color: #e5f9fc; font: 700 14px 'Barlow Condensed',sans-serif; }
+.objective-marker strong { font-size: 9px; letter-spacing: 1.2px; }
+.objective-marker small { font-size: 7px; color: #ccd3c8; }
+.kill-feed { position: absolute; right: 26px; top: 29px; display: flex; flex-direction: column; gap: 9px; text-align: right; font-size: 8px; }
+.kill-feed div { display: flex; align-items: center; justify-content: flex-end; gap: 9px; color: #e8e7de; }
+.kill-feed svg { color: #b7c3b4; }
+.feed-blue { color: #65c6dc; }
+.hip-reticle { position: absolute; left: 50%; top: 50%; width: 17px; height: 17px; transform: translate(-50%,-50%); opacity: .88; }
+.hip-reticle i { position: absolute; background: #f1f3ea; box-shadow: 0 1px 3px #000; }
+.hip-reticle i:nth-child(1) { left: 8px; top: 0; width: 1px; height: 5px; }
+.hip-reticle i:nth-child(2) { left: 8px; bottom: 0; width: 1px; height: 5px; }
+.hip-reticle i:nth-child(3) { top: 8px; left: 0; width: 5px; height: 1px; }
+.hip-reticle i:nth-child(4) { top: 8px; right: 0; width: 5px; height: 1px; }
+.hip-reticle b { position: absolute; left: 7px; top: 7px; width: 3px; height: 3px; border-radius: 50%; background: #dce7d1; }
+.optic-view { position: absolute; inset: 0; background: radial-gradient(circle at center,transparent 0 18.2vh,rgba(7,10,10,.08) 18.5vh,rgba(5,8,8,.94) 22vh,rgba(4,7,7,.98) 100%); }
+.optic-ring { position: absolute; left: 50%; top: 50%; width: 37vh; height: 37vh; transform: translate(-50%,-50%); border: 9px solid #111718; border-radius: 50%; box-shadow: 0 0 0 3px #49504d,0 0 0 8px #0c1010,0 8px 28px #000; overflow: hidden; }
+.optic-ring::before { content: ''; position: absolute; inset: 8px; border: 1px solid #dae4d977; border-radius: 50%; }
+.optic-ring::after { content: ''; position: absolute; left: 50%; top: 50%; width: 1px; height: 100%; transform: translate(-50%,-50%); background: linear-gradient(transparent,#e4ece4 27%,#e4ece4 73%,transparent); opacity: .8; }
+.optic-cross { position: absolute; z-index: 1; display: block; background: #e5eee4d9; }
+.optic-cross.horizontal { left: 0; right: 0; top: 50%; height: 1px; }
+.optic-cross.vertical { top: 0; bottom: 0; left: 50%; width: 1px; display: none; }
+.optic-ring b { position: absolute; z-index: 2; left: 50%; top: 50%; width: 5px; height: 5px; transform: translate(-50%,-50%); border-radius: 50%; border: 1px solid #e94c37; background: #e94c3744; }
+.squad-panel { position: absolute; left: 242px; bottom: 44px; width: 205px; padding: 8px 10px; background: linear-gradient(90deg,#111918c9,#11191855); border-left: 2px solid #5ebbd0; }
+.squad-heading { display: flex; align-items: center; gap: 7px; color: #add7df; font-size: 8px; letter-spacing: 1.4px; margin-bottom: 7px; }
+.squad-heading small { margin-left: auto; color: #d7d9ce; font-size: 7px; }
+.squad-member { height: 23px; display: flex; align-items: center; gap: 7px; color: #e0e4d9; font-size: 8px; }
+.squad-dot { width: 14px; height: 14px; display: grid; place-items: center; border: 1px solid #69c9df; color: #70d1e8; font-size: 8px; }
+.squad-member b { width: 48px; font-size: 7px; letter-spacing: .5px; }
+.squad-health { height: 5px; flex: 1; background: #303936; }
+.squad-health i { display: block; height: 100%; background: #b6d833; }
+.squad-distance { width: 25px; text-align: right; color: #adb6aa; font-size: 7px; }
+.minimap-panel { position: absolute; left: 26px; bottom: 24px; width: 198px; padding: 8px 9px 7px; background: linear-gradient(145deg,#121918dd,#121918a6); border: 1px solid #d7dfd030; box-shadow: 0 4px 22px #0005; }
+.minimap-heading { height: 16px; display: flex; align-items: center; gap: 7px; color: #d8ddd2; font-size: 8px; letter-spacing: 1.1px; }
+.minimap-heading svg { color: #80c9d9; }
+.minimap-heading small { margin-left: auto; color: #e8eadf; }
+.minimap-wrap { position: relative; display: flex; justify-content: center; overflow: hidden; }
+.minimap-canvas { display: block; width: 164px; height: 164px; filter: contrast(1.12); }
+.map-scale { position: absolute; right: 5px; bottom: 7px; font-size: 7px; color: #d4d8cc; }
+.map-footer { display: flex; justify-content: space-between; padding-top: 5px; color: #b9c0b5; font-size: 6px; letter-spacing: .6px; }
+.map-footer span { display: flex; align-items: center; gap: 4px; }
+.map-dot { width: 5px; height: 5px; border-radius: 50%; }
+.map-dot.blue { background: #56bdd2; }
+.map-dot.amber { background: #d6bd69; }
+.health-panel { position: absolute; left: 26px; bottom: 225px; width: 198px; padding: 8px 10px; background: #121918a8; border-left: 2px solid #b2d441; }
+.health-title,.armor-title { display: flex; align-items: center; gap: 7px; color: #e5e8db; font-size: 8px; letter-spacing: 1px; }
+.health-title svg { color: #b8d942; }
+.health-title strong,.armor-title strong { margin-left: auto; font-size: 12px; }
+.health-track { height: 4px; margin: 5px 0 8px; background: #303a34; }
+.health-track i { display: block; width: 100%; height: 100%; background: #b6d739; }
+.armor-title svg { color: #6fc5d7; }
+.health-track.armor { margin-bottom: 1px; }
+.health-track.armor i { width: 75%; background: #69c4d6; }
+.weapon-panel { position: absolute; right: 28px; bottom: 27px; width: 215px; padding: 10px 12px 8px; background: linear-gradient(225deg,#101716e8,#10171693); border-right: 2px solid #d2c269; text-align: right; }
+.weapon-class { display: flex; justify-content: flex-end; align-items: center; gap: 9px; color: #adb7a8; font-size: 7px; letter-spacing: 1.4px; }
+.weapon-class i { font-style: normal; color: #141a16; background: #d4c16a; padding: 2px 5px; }
+.weapon-name { margin-top: 5px; font: 600 19px 'Barlow Condensed',sans-serif; letter-spacing: 1.3px; color: #eff0e7; }
+.weapon-name small { font: 8px 'DM Mono',monospace; color: #aab2a6; letter-spacing: 1px; }
+.weapon-ammo { display: flex; align-items: baseline; justify-content: flex-end; gap: 7px; margin-top: 2px; }
+.weapon-ammo strong { font: 600 42px/.95 'Barlow Condensed',sans-serif; color: #e5e8da; }
+.weapon-ammo > span { font: 17px 'Barlow Condensed',sans-serif; color: #bdc5b9; }
+.ammo-icon { margin-left: 8px; color: #d5c96f; align-self: center; }
+.weapon-state { margin-top: 4px; color: #c3c9b8; font-size: 7px; letter-spacing: 1.5px; }
+.weapon-slots { display: flex; justify-content: flex-end; gap: 13px; padding-top: 9px; margin-top: 8px; border-top: 1px solid #dce1d126; color: #a8b0a1; font-size: 7px; }
+.hud-controls { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; align-items: center; gap: 6px; white-space: nowrap; color: #c1c8bd; font-size: 7px; letter-spacing: .7px; }
+.hud-controls kbd { padding: 3px 5px; border: 1px solid #e3e6d84d; border-radius: 2px; color: #f0f1e9; font: 7px 'DM Mono',monospace; }
+.combat-hud.is-aiming .hud-top-center,.combat-hud.is-aiming .objective-marker,.combat-hud.is-aiming .kill-feed,.combat-hud.is-aiming .squad-panel { opacity: .35; }
+.enemy-marker { display: flex; align-items: center; gap: 5px; padding: 3px 6px; border: 1px solid #ef876c99; background: #271c1cc9; color: #ffd3c3; font: 700 8px 'DM Mono',monospace; letter-spacing: 1px; white-space: nowrap; }
+.enemy-marker i { width: 7px; height: 7px; display: block; background: #e9795e; transform: rotate(45deg); box-shadow: 0 0 8px #e9795e88; }
+.combat-hud.hit-confirmed .hip-reticle i,.combat-hud.hit-confirmed .hip-reticle b { background: #f2d36d; box-shadow: 0 0 7px #f2d36d; }
+.combat-hud.hit-confirmed .optic-ring b { width: 9px; height: 9px; border-color: #f2d36d; background: #f2d36d88; box-shadow: 0 0 10px #f2d36d; }
+@media(max-width:850px) { .squad-panel { left: 220px; width: 170px; } .minimap-panel,.health-panel { left: 14px; } .weapon-panel { right: 14px; width: 180px; } .kill-feed { right: 14px; } .hud-controls { display: none; } .minimap-canvas { width: 145px; height: 145px; } .minimap-panel { width: 180px; } .health-panel { width: 180px; bottom: 204px; } }
+@media(max-width:600px) { .hud-top-center { top: 10px; width: 72vw; } .scoreboard { height: 29px; } .compass-strip { gap: 11px; } .objective-marker { top: 15%; } .kill-feed { top: 15px; font-size: 6px; } .minimap-panel { left: 8px; bottom: 8px; width: 140px; padding: 5px; } .minimap-canvas { width: 120px; height: 120px; } .minimap-heading { font-size: 6px; } .map-footer { font-size: 5px; } .health-panel { left: 8px; bottom: 167px; width: 140px; } .squad-panel { left: 8px; bottom: 183px; width: 140px; transform: translateY(-168px); padding: 4px; } .squad-member { height: 18px; } .weapon-panel { right: 8px; bottom: 8px; width: 150px; padding: 7px; } .weapon-ammo strong { font-size: 34px; } .weapon-name { font-size: 16px; } .weapon-slots { font-size: 6px; } .optic-ring { width: 32vh; height: 32vh; border-width: 6px; } }
